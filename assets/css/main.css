@@ -19,12 +19,114 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #0b1420;
+  --default-color: #c2d7ef;
+  --heading-color: #ffffff;
+  --accent-color: #1fb6ff;
+  --surface-color: #11233b;
+  --contrast-color: #eef6ff;
+}
+
+/* Professional DevOps accent classes */
+.btn-primary {
+  background: linear-gradient(135deg, #0f8eff 0%, #12d4ff 100%);
+  border: 0;
+  color: #0b1420;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(31, 182, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0e7ae0 0%, #0db6d9 100%);
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.hero {
+  position: relative;
+  background: linear-gradient(160deg, rgba(11, 20, 32, 0.95), rgba(10, 28, 56, 0.95)), url(assets/img/hero-bg.jpg) no-repeat center / cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--contrast-color);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 13, 25, 0.65);
+  z-index: 1;
+}
+
+.hero h2,
+.hero p {
+  position: relative;
+  z-index: 2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+.hero .typed {
+  color: #12d4ff;
+  font-weight: 700;
+}
+
+@media (max-width: 991px) {
+  .header {
+    width: 100%;
+    position: fixed;
+    height: auto;
+    bottom: auto;
+    border-right: none;
+    z-index: 9999;
+  }
+
+  .header~main,
+  .header~#footer {
+    margin-left: 0;
+  }
+}
+
+.card, .portfolio-content, .resume-item, .service-item {
+  background: var(--surface-color);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.30);
+}
+
+.section-title h2 {
+  color: #f7faff;
+  margin-bottom: 0.75rem;
+}
+
+.section-title p {
+  color: #b4c9de;
+  max-width: 700px;
+}
+
+.progress .progress-bar {
+  background: linear-gradient(90deg, #1fb6ff 0%, #a2e3ff 100%);
+}
+
+.navmenu ul li a {
+  color: #a8b7d1;
+  font-weight: 600;
+}
+
+.navmenu ul li a.active,
+.navmenu ul li a:hover {
+  color: #ffffff;
+  background: rgba(31, 182, 255, 0.15);
+  border-radius: 0.8rem;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -1272,4 +1374,71 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# Sticky Back Navigation Buttons
+--------------------------------------------------------------*/
+.portfolio-details-page main,
+.service-details-page main {
+  padding-bottom: 140px;
+}
+
+.back-nav-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(4, 11, 20, 0.98), rgba(4, 11, 20, 0.95));
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(31, 182, 255, 0.2);
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  z-index: 998;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.back-nav-buttons .btn {
+  margin: 0;
+  padding: 12px 25px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.back-nav-buttons .btn-primary {
+  box-shadow: 0 5px 15px rgba(31, 182, 255, 0.3);
+}
+
+.back-nav-buttons .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(31, 182, 255, 0.5);
+}
+
+.back-nav-buttons .btn-outline-primary {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.back-nav-buttons .btn-outline-primary:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .back-nav-buttons {
+    padding: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .back-nav-buttons .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
